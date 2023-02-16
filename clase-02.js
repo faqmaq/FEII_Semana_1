@@ -69,6 +69,8 @@ function jugarDeNuevo(){
     return confirmacion
 }
 
+function jugar(){
+
 let resultadoPartida;
 let confirmacion;
 
@@ -80,6 +82,9 @@ do {
 } while (confirmacion === true)
 
 alert('El juego ha finalizado')
+}
+
+jugar();
 
 
 /* -------------------------------------------------------------------------- */
