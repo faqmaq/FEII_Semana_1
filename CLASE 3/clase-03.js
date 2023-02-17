@@ -5,7 +5,8 @@ console.info('--- clase 03 ---');
 // FUNCION 04 - compararJugada()
 let puntos = {
     usuario: 0,
-    maquina: 0
+    maquina: 0,
+    empate: 0
 }
 
 const nombreJugador = iniciarJuego();
@@ -13,17 +14,38 @@ const nombreJugador = iniciarJuego();
  /*                             👇 Bucle Principal                             */
  /* -------------------------------------------------------------------------- */
  // Mientras no ganen tres veces el usuario y tres veces la maquina
+let contador = 0;
 while (puntos.usuario < 3 && puntos.maquina < 3 ) {
     const resultadoPartida = compararJugada();
+    // console.log(recibirResultado(resultadoPartida))
     
     if( resultadoPartida == '¡Felicitaciones Ganaste!'){
         puntos.usuario++;
+        alert(resultadoPartida);
     } else if( resultadoPartida == 'Perdiste, Segui participando') {
         puntos.maquina++;
+        alert(resultadoPartida);
     }
+    else{
+        puntos.empate++;
+        alert(resultadoPartida);
+    }
+    contador++
 
     console.table(puntos);
 }
+
+function mostrarResultado (objetoPuntos){
+    if (objetoPuntos.usuario>objetoPuntos.maquina){
+        alert('Ganaste ' + objetoPuntos.usuario + " a " + objetoPuntos.maquina)
+    }
+    else{
+        alert('Perdiste, volvé a intentarlo')
+    }
+}
+mostrarResultado(puntos);
+alert('Usted ha jugado ' + contador + ' partidas. Ganaste ' + puntos.usuario + ', perdiste '+ puntos.maquina + ' y empataste ' + puntos.empate)
+
 
 
 /* -------------------------------------------------------------------------- */
